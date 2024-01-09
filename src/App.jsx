@@ -1,5 +1,7 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+
 import PlantsPage from './pages/PlantPage';
+import TopNavbar from './components/TopNavbar';
 
 function App() {
 
@@ -7,6 +9,8 @@ function App() {
     <>
       {/* Fragment */}
       <Router>
+        <TopNavbar />
+
         <Routes>
           {/* Make sure only one route shown at a time */}
           {/* Content inswitch depends on the route */}
