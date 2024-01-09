@@ -1,7 +1,8 @@
 function PlantsPage() {
     return (
         <>
-            <div>Plants</div>
+            <div>
+                <div className="border-black border-2">Plants</div></div>
         </>
     )
 }
