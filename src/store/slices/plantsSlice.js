@@ -11,4 +11,4 @@ const plantsSlice = createSlice({
     reducers: {}
 })
 
-export default plantsSlice.reducer
+export const plantsReducer = plantsSlice.reducer;
