@@ -10,6 +10,10 @@ function PlantsPage() {
                         to="list"
                         className="font-bold border-b-4 border-blue-500 bg-sky-700 w-full text-center"
                     >List</NavLink>
+                    <NavLink
+                        to="api"
+                        className="font-bold border-b-4 border-blue-500 bg-sky-700 w-full text-center"
+                    >Api Search</NavLink>
                 </div>
             </div>
         </>

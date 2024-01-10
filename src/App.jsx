@@ -4,6 +4,7 @@ import HomePage from './pages/HomePage';
 import PlantsPage from './pages/PlantPage';
 import PlantsList from './components/plants/PlantsList'
 import TopNavbar from './components/TopNavbar';
+import PlantsApiSearch from './components/plants/PlantApiSearch';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/plants">
             <Route index={true} element={<PlantsPage />} />
             <Route index={false} path="list" element={<PlantsList />} />
+            <Route index={false} path="api" element={<PlantsApiSearch />} />
           </Route>
           {/* One route for each page we want to render */}
           {/* Nest the component we want to show within div when on route */}
