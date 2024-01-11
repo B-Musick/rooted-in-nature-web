@@ -4,6 +4,7 @@ function TopNavbar() {
     const links = [
         { label: "Home", path: "/" },
         { label: "Plants", path: "/plants" },
+        { label: "Keys", path: "/keys" },
     ]
 
     const renderedLinks = links.map((link) => {
