@@ -7,7 +7,8 @@ import KeysPage from './pages/KeysPage';
 import PlantsList from './components/plants/PlantsList'
 import TopNavbar from './components/TopNavbar';
 import PlantsApiSearch from './components/plants/PlantApiSearch';
-import PlantKey from './components/plants/PlantKey';
+import PlantKey from './components/keys/PlantKey';
+import PlantKeysList from './components/keys/PlantKeysList';
 
 function App() {
   return (
@@ -27,11 +28,11 @@ function App() {
             <Route index={true} element={<PlantsPage />} />
             <Route index={false} path="list" element={<PlantsList />} />
             <Route index={false} path="api" element={<PlantsApiSearch />} />
-            <Route index={false} path="keys/:name" element={<PlantKey />} />
           </Route>
 
           <Route path="/keys">
             <Route index={true} element={<KeysPage />} />
+            <Route index={false} path="list" element={<PlantKeysList />} />
             <Route index={false} path=":name" element={<PlantKey />} />
           </Route>
 

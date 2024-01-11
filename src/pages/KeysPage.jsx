@@ -4,13 +4,8 @@ import Button from "../components/Button";
 import Modal from "../components/Modal";
 import { BsFiletypeKey } from "react-icons/bs";
 
-import { useFetchKeysQuery } from "../store/apis/keysApi";
-
 function KeysPage() {  
     const [showModal, setShowModal] = useState(false);
-    const {data, error, isLoading } = useFetchKeysQuery();
-
-    console.log(data);
 
     const handleClick = () => {
         setShowModal(true);
@@ -36,7 +31,6 @@ function KeysPage() {
             <input type="submit" />
         </form>
     </Modal>;
-
 
     return (
         <div className='flex justify-evenly flex-wrap'>
