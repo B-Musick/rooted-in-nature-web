@@ -2,6 +2,8 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import HomePage from './pages/HomePage';
 import PlantsPage from './pages/PlantPage';
+import KeysPage from './pages/KeysPage';
+
 import PlantsList from './components/plants/PlantsList'
 import TopNavbar from './components/TopNavbar';
 import PlantsApiSearch from './components/plants/PlantApiSearch';
@@ -29,7 +31,7 @@ function App() {
           </Route>
 
           <Route path="/keys">
-            <Route index={true} element={<PlantKey />} />
+            <Route index={true} element={<KeysPage />} />
             <Route index={false} path=":name" element={<PlantKey />} />
           </Route>
 
