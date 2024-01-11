@@ -1,20 +1,22 @@
 import { NavLink } from 'react-router-dom';
+import PageButton from '../components/PageButton';
+import { TbClover2 } from "react-icons/tb";
+import { BsCollection } from "react-icons/bs";
+import { IoKeySharp } from "react-icons/io5";
 
 function PlantsPage() {
     return (
         <>
-            <div>
-                <div className="border-black border-2">Plants</div>
-                <div>
-                    <NavLink
-                        to="list"
-                        className="font-bold border-b-4 border-blue-500 bg-sky-700 w-full text-center"
-                    >List</NavLink>
-                    <NavLink
-                        to="api"
-                        className="font-bold border-b-4 border-blue-500 bg-sky-700 w-full text-center"
-                    >Api Search</NavLink>
-                </div>
+            <div className='flex justify-evenly flex-wrap'>
+                <PageButton destination="list" text="Collection">
+                    <BsCollection className="text-5xl" />
+                </PageButton>
+                <PageButton destination="api" text="Search Api">
+                    <TbClover2 className="text-5xl" />
+                </PageButton>
+                <PageButton destination="keys" text="Plant Keys">
+                    <IoKeySharp className="text-5xl" />
+                </PageButton>
             </div>
         </>
     )
