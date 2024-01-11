@@ -4,8 +4,13 @@ import Button from "../components/Button";
 import Modal from "../components/Modal";
 import { BsFiletypeKey } from "react-icons/bs";
 
+import { useFetchKeysQuery } from "../store/apis/keysApi";
+
 function KeysPage() {  
     const [showModal, setShowModal] = useState(false);
+    const {data, error, isLoading } = useFetchKeysQuery();
+
+    console.log(data);
 
     const handleClick = () => {
         setShowModal(true);
@@ -19,7 +24,17 @@ function KeysPage() {
 
     const modal = <Modal onClose={handleClose} actionBar={actionBar}>
         {/* receive children prop in Modal */}
-        <p>This is for child</p>
+        <form>
+            <div><span>Input JSON file</span></div>
+            <div>
+                <input type="file" accept=".json" />
+            </div>
+            <div>
+                <span></span>
+                <span><input type="text" name="jsonKey" placeholder="Plant Key JSON" /></span>
+            </div>
+            <input type="submit" />
+        </form>
     </Modal>;
 
 
