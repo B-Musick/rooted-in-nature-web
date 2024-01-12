@@ -2,9 +2,13 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import HomePage from './pages/HomePage';
 import PlantsPage from './pages/PlantPage';
+import KeysPage from './pages/KeysPage';
+
 import PlantsList from './components/plants/PlantsList'
 import TopNavbar from './components/TopNavbar';
 import PlantsApiSearch from './components/plants/PlantApiSearch';
+import PlantKey from './components/keys/PlantKey';
+import PlantKeysList from './components/keys/PlantKeysList';
 
 function App() {
   return (
@@ -25,6 +29,13 @@ function App() {
             <Route index={false} path="list" element={<PlantsList />} />
             <Route index={false} path="api" element={<PlantsApiSearch />} />
           </Route>
+
+          <Route path="/keys">
+            <Route index={true} element={<KeysPage />} />
+            <Route index={false} path="list" element={<PlantKeysList />} />
+            <Route index={false} path=":keyId" element={<PlantKey />} />
+          </Route>
+
           {/* One route for each page we want to render */}
           {/* Nest the component we want to show within div when on route */}
         </Routes>
