@@ -5,10 +5,10 @@ function Modal({ onClose, children, actionBar }){
     useEffect(()=>{
         document.body.classList.add('overflow-hidden');
 
-        // // When modal being removed, need to remove the class
-        // return ()=>{
-        //     document.body.remove('overflow-hidden');
-        // }
+        // When modal being removed, need to remove the class
+        return ()=>{
+            document.body.classList.remove('overflow-hidden');
+        }
     }, [])
 
     return ReactDOM.createPortal(
