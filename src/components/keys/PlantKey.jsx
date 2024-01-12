@@ -3,13 +3,13 @@ import { useState } from 'react';
 import PlantKeyPanel from './PlantKeyPanel';
 import { isInteger } from '../../lib/helpers';
 import { useParams } from "react-router-dom";
-import { useFetchKeysQuery } from "../../store/apis/keysApi";
+import { useFetchKeyQuery } from "../../store/apis/keysApi";
 
 function PlantKey() {
-    const { data, error, isLoading } = useFetchKeysQuery();
+    const params = useParams();
+    const { data, error, isLoading } = useFetchKeyQuery(params.keyId);
 
     const [keyIndex, setKeyIndex] = useState(1);
-    const params = useParams();
 
     let result = <div>Loading</div>;
 
@@ -18,7 +18,7 @@ function PlantKey() {
     }
 
     if(data){
-        const {name, key} = data[0][params.name];
+        const {name, key} = data;
 
         result = <div className='flex flex-col items-center bg-slate-200 h-lvh'>
             <div className='bg-gradient-to-r from-sky-900 to-sky-700 self-start text-white rounded-r-full p-2 pr-8 mt-4 text-2xl'>{name}</div>

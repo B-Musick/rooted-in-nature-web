@@ -15,10 +15,18 @@ const keysApi = createApi({
                         method: 'GET'
                     }
                 }
+            }),
+            fetchKey: builder.query({
+                query: (keyId) => {
+                    return {
+                        url: `/keys/${keyId}`,
+                        method: 'GET'
+                    }
+                }
             })
         }
     }
 })
 
-export const { useFetchKeysQuery } = keysApi;
+export const { useFetchKeysQuery, useFetchKeyQuery } = keysApi;
 export { keysApi }

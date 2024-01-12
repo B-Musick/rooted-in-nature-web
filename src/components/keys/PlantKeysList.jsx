@@ -5,12 +5,12 @@ import PageButton from "../PageButton";
 function PlantKeysList() {
     const { data, error, isLoading } = useFetchKeysQuery();
 
-    let result = data ? Object.keys(data[0]).map((objKey, index)=>{
-        const { name, key } = data[0][objKey];
+    let result = data ? data.map((plantKey, index)=>{
+        const { name, key, url } = plantKey;
 
         return (
             <div key={name}>
-                    <PageButton text={ name} destination={"../"+objKey}/>
+                    <PageButton text={name} destination={"../" + url}/>
                 </div>)
     }) : [];
 

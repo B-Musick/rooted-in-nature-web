@@ -1,8 +1,11 @@
 import { useState } from "react";
+
 import PageButton from "../components/PageButton";
 import Button from "../components/Button";
 import Modal from "../components/Modal";
+
 import { BsFiletypeKey } from "react-icons/bs";
+import { GiThreeKeys } from "react-icons/gi";
 
 function KeysPage() {  
     const [showModal, setShowModal] = useState(false);
@@ -36,6 +39,9 @@ function KeysPage() {
         <div className='flex justify-evenly flex-wrap'>
             <PageButton onClick={handleClick} text="Add">
                 <BsFiletypeKey className="text-5xl" />
+            </PageButton>
+            <PageButton destination="list" text="View">
+                <GiThreeKeys className="text-5xl" />
             </PageButton>
             {showModal && modal}
         </div>

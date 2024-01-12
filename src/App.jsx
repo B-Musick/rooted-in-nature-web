@@ -33,7 +33,7 @@ function App() {
           <Route path="/keys">
             <Route index={true} element={<KeysPage />} />
             <Route index={false} path="list" element={<PlantKeysList />} />
-            <Route index={false} path=":name" element={<PlantKey />} />
+            <Route index={false} path=":keyId" element={<PlantKey />} />
           </Route>
 
           {/* One route for each page we want to render */}
