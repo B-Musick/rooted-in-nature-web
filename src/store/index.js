@@ -26,4 +26,4 @@ setupListeners(store.dispatch);
 export { store }
 export { useFetchApiPlantsQuery } from './apis/trefleApi';
 export { useFetchKeysQuery, useFetchKeyQuery } from './apis/keysApi';
-export { useFetchPlantsQuery } from './apis/plantsApi';
+export { useFetchPlantsQuery, useFetchPlantQuery } from './apis/plantsApi';

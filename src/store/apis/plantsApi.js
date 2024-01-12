@@ -16,10 +16,18 @@ const plantsApi = createApi({
                         method: 'GET'
                     }
                 }
+            }),
+            fetchPlant: builder.query({
+                query: (plantId) => {
+                    return {
+                        url: `/plants/${plantId}`,
+                        method: 'GET'
+                    }
+                }
             })
         }
     }
 })
 
-export const { useFetchPlantsQuery } = plantsApi;
+export const { useFetchPlantsQuery, useFetchPlantQuery } = plantsApi;
 export { plantsApi }
