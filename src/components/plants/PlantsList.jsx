@@ -12,7 +12,7 @@ function PlantsList(){
         renderedPlants = plants.map((plant) => {
             return (
                 <div key={plant.id}>
-                    <PlantCard plant={plant} />
+                    <PlantCard href={plant.id} plant={plant} />
                 </div>
             )
         });
