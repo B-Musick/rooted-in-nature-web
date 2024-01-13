@@ -1,5 +1,6 @@
 import { useFetchPlantQuery } from "../store";
 import { useParams } from "react-router-dom";
+import { capitalize } from "../lib/helpers";
 
 function PlantShowPage() {
     const params = useParams();
@@ -13,7 +14,7 @@ function PlantShowPage() {
     } else if (isSuccess) {
         renderedPlant = 
             <div key={plant.id}>
-                <div>{plant.species}</div>
+                <div>{capitalize(plant.genus)} {capitalize(plant.species)}</div>
             </div>
 
     } else if (isError) {
