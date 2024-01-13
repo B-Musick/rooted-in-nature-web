@@ -6,10 +6,11 @@
  * https://jestjs.io/docs/configuration#roots-arraystring
  *  */ 
 import { isInteger } from "../../lib/helpers";
+import { expect, test } from 'vitest'
 
 test('Returns true when an integer', ()=>{
-    expect(isInteger("2")).toBe(true);
+    expect(isInteger("2")).toBeTruthy();
 })
 test('Returns false when not an integer', () => {
-    expect(isInteger("Hi2")).toBe(false);
+    expect(isInteger("Hi2")).toBeFalsy();
 })
