@@ -1,9 +1,9 @@
-import { useFetchPlantsQuery } from '../../store/apis/trefleApi';
+import { useFetchApiPlantsQuery } from '../../store/apis/trefleApi';
 
 import PlantCard from './PlantCard';
 
 function TrefleApiResults({term}){
-    const { data, error, isLoading } = useFetchPlantsQuery(term);
+    const { data, error, isLoading } = useFetchApiPlantsQuery(term);
    
     let renderedPlants = data ? data.map((plant) => {
         return (

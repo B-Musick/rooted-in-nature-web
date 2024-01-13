@@ -18,7 +18,7 @@ const trefleApi = createApi({
     }),
     endpoints(builder) {
         return {
-            fetchPlants: builder.query({
+            fetchApiPlants: builder.query({
                 query: (searchTerm) => {
                     return {
                         url: 'plants/search',
@@ -43,5 +43,5 @@ const trefleApi = createApi({
     }
 })
 
-export const { useFetchPlantsQuery } = trefleApi;
+export const { useFetchApiPlantsQuery } = trefleApi;
 export { trefleApi }

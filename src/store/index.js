@@ -5,19 +5,25 @@ import { plantsReducer } from './slices/plantsSlice';
 
 import { trefleApi } from "./apis/trefleApi"; // creates a slice
 import { keysApi } from "./apis/keysApi";
+import { plantsApi } from "./apis/plantsApi";
 
 const store = configureStore({
     reducer: {
         plants: plantsReducer,
         [trefleApi.reducerPath]: trefleApi.reducer,
-        [keysApi.reducerPath]: keysApi.reducer
+        [keysApi.reducerPath]: keysApi.reducer,
+        [plantsApi.reducerPath]: plantsApi.reducer
     },
     middleware: getDefaultMiddleware =>
-        getDefaultMiddleware().concat(trefleApi.middleware).concat(keysApi.middleware)
+        getDefaultMiddleware()
+            .concat(trefleApi.middleware)
+            .concat(keysApi.middleware)
+            .concat(plantsApi.middleware)
 })
 
 setupListeners(store.dispatch);
 
 export { store }
-export { useFetchPlantsQuery } from './apis/trefleApi';
+export { useFetchApiPlantsQuery } from './apis/trefleApi';
 export { useFetchKeysQuery, useFetchKeyQuery } from './apis/keysApi';
+export { useFetchPlantsQuery, useFetchPlantQuery } from './apis/plantsApi';

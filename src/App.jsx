@@ -9,6 +9,7 @@ import TopNavbar from './components/TopNavbar';
 import PlantsApiSearch from './components/plants/PlantApiSearch';
 import PlantKey from './components/keys/PlantKey';
 import PlantKeysList from './components/keys/PlantKeysList';
+import PlantShowPage from './pages/PlantShowPage';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
             <Route index={true} element={<PlantsPage />} />
             <Route index={false} path="list" element={<PlantsList />} />
             <Route index={false} path="api" element={<PlantsApiSearch />} />
+            <Route index={false} path=":plantId" element={<PlantShowPage />} />
           </Route>
 
           <Route path="/keys">
