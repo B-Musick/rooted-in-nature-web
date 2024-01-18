@@ -1,3 +1,4 @@
+import { nanoid } from '@reduxjs/toolkit';
 import { createApi } from '@reduxjs/toolkit/query/react';
 import { fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
@@ -10,6 +11,12 @@ const plantsApi = createApi({
     endpoints(builder) {
         return {
             fetchPlants: builder.query({
+                providesTags: (results, error, plant) => {
+                    const tags = results.map(plant => {
+                        return { type: 'Plants', id: plant.id }
+                    })
+                    return tags;
+                },
                 query: () => {
                     return {
                         url: '/plants',
@@ -24,10 +31,53 @@ const plantsApi = createApi({
                         method: 'GET'
                     }
                 }
+            }),
+            addPlant: builder.mutation({
+                invalidatesTags: ['Plants'],
+                query: (plant)=>{
+                    // Tell RTK 
+                    return {
+                        url: 'plants', 
+                        method: 'POST',
+                        body: {
+                            id: nanoid(),
+                            ...plant
+                        }
+                    }
+                }
+            }),
+            removePlant: builder.mutation({
+                invalidatesTags: (results, error, plant)=>{
+                    return [{type: 'Plants', id: plant.id}]
+                },
+                query: (plant) => {
+                    return {
+                        url: `/plants/${plant.id}`,
+                        method: 'DELETE'
+                    }
+                }
+            }),
+            editPlant: builder.mutation({
+                invalidatesTags: (results, error, plant) => {
+                    return [{ type: 'Plants', id: plant.id }]
+                },
+                query: (plant) => {
+                    return {
+                        url: `/plants/${plant.id}`,
+                        method: 'PATCH',
+                        body: plant
+                    }
+                }
             })
         }
     }
 })
 
-export const { useFetchPlantsQuery, useFetchPlantQuery } = plantsApi;
+export const { 
+    useFetchPlantsQuery, 
+    useFetchPlantQuery, 
+    useAddPlantMutation,
+    useRemovePlantMutation,
+    useEditPlantMutation
+} = plantsApi;
 export { plantsApi }

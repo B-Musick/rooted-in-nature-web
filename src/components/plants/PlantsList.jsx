@@ -1,12 +1,14 @@
 import PlantCard from './PlantCard';
-import { useFetchPlantsQuery } from '../../store/apis/plantsApi';
 
-function PlantsList(){
-    const { data: plants, isLoading, isSuccess, isError  } = useFetchPlantsQuery();
+function PlantsList({useQuery, term}){
+    const { data: plants, isLoading, isSuccess, isError  } = useQuery(term);
 
     let renderedPlants;
 
     if(isLoading) {
+        /**
+         * @todo: add a spinner effect here
+         */
         renderedPlants = <div>Loading...</div>
     } else if (isSuccess) {
         renderedPlants = plants.map((plant) => {
@@ -17,11 +19,11 @@ function PlantsList(){
             )
         });
     } else if (isError) {
-        renderedPlants = <div>Error</div>
+        renderedPlants = <div>Error</div> 
     }
 
     return (
-        <div>
+        <div className='flex flex-wrap justify-center w-full overflow-scroll'>
             {renderedPlants}
         </div>
     )

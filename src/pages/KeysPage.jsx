@@ -10,14 +10,9 @@ import { GiThreeKeys } from "react-icons/gi";
 function KeysPage() {  
     const [showModal, setShowModal] = useState(false);
 
-    const handleClick = () => {
-        setShowModal(true);
-    }
-
-    const handleClose = () => {
-        setShowModal(false);
-    }
-
+    const handleClick = () => setShowModal(true);
+    const handleClose = () => setShowModal(false);
+    
     const actionBar = <div><Button onClick={handleClose} primary>Accept</Button></div>;
 
     const modal = <Modal onClose={handleClose} actionBar={actionBar}>
